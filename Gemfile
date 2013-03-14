@@ -24,4 +24,6 @@ group :development, :test do
   gem 'spork' # Should improve performance of guard
   gem 'guard-spork'
   gem 'guard'
+
+  gem 'sqlite3'
 end
