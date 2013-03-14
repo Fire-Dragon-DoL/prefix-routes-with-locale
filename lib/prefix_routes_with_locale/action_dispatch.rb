@@ -7,7 +7,7 @@ module PrefixRoutesWithLocale
       # the parameter is a list of available locales, otherwise set from I18n.available_locales
       def prefix_routes_with_locale(locale_list = false)
         available_locales = I18n.available_locales
-        available_locales = locale_list if available_locales
+        available_locales = locale_list if locale_list
         
         scope ":locale", locale: /#{available_locales.join("|")}/ do
           yield
