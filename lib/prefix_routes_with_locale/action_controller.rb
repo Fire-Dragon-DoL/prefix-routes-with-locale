@@ -32,9 +32,8 @@ module PrefixRoutesWithLocale
           session[:locale] = I18n.locale unless session_locale_is_set
         end
 
-        def default_url_options(options = {})
-          updated_options = {locale: I18n.locale}
-          updated_options.merge!(super)
+        def default_url_options
+          super.merge({locale: I18n.locale})
         end
       
     end
