@@ -3,17 +3,21 @@ module PrefixRoutesWithLocale
     module BaseMethods
       
       def self.included(base)
-        base.send :prepend_before_filter, :set_locale_from_prefix_or_suppose
+        if Rails.application.config.prefix_routes_with_locale.auto_set_locale
+          base.send :prepend_before_filter, :set_locale_from_prefix_or_suppose
+        end
       end
       
       protected
 
+        # Set I18n.locale, based on the given priority: url prefix/session/http/default_locale.
+        # When the locale is found, session[:locale] is set to that value
         def set_locale_from_prefix_or_suppose
           # Find out preferred locale from HTTP header
           preferred_locales = I18n.available_locales
 
           http_locale = I18n.default_locale
-          if defined?(http_accept_language) && !http_accept_language.nil?
+          if Rails.application.config.use_http_locale_accept_language && defined?(http_accept_language) && !http_accept_language.nil?
             http_locale = http_accept_language.compatible_language_from(preferred_locales)
           end
 
