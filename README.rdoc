@@ -56,5 +56,12 @@ Just ensure to run this method **out** of `prefix_routes_with_url`, after *any* 
   end
 
 = TODO
-  - Add some tests
-  - Add some documentation
+
+* Add some tests
+* Add some documentation
+
+= Licensing
+This gem is under MIT license, see LICENSE.txt file.
+
+= Authors
+* [Francesco Belladonna](https://github.com/Fire-Dragon-DoL)
