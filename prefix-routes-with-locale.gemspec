@@ -1,7 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "prefix-routes-with-locale/VERSION"
+require "prefix_routes_with_locale/version"
 
 Gem::Specification.new do |s|
   s.name = "prefix-routes-with-locale"
