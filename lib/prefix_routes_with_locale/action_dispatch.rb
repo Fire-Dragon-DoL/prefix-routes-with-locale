@@ -17,4 +17,4 @@ module PrefixRoutesWithLocale
   end
 end
 
-ActionDispatch::Routing::Mapper.send :include, RailsI18nRoutes::ActionDispatch::MapperMethods
+ActionDispatch::Routing::Mapper.send :include, PrefixRoutesWithLocale::ActionDispatch::MapperMethods
