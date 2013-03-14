@@ -1,13 +1,13 @@
-=== Last update March 17 2013
+### Last update March 17 2013
 
 ---
 
-= Prefix Routes with Locale
+## Prefix Routes with Locale
 
 Small gem to detect the locale from prefix, ensuring that is added to any route.
 Set the locale based on prefix.
 
-= Install
+## Install
 
 Put this line in your Gemfile:
   gem 'prefix-routes-with-url', github: 'Fire-Dragon-DoL/prefix-routes-with-locale'
@@ -55,13 +55,13 @@ Just ensure to run this method **out** of `prefix_routes_with_url`, after *any* 
     ensure_url_has_locale
   end
 
-= TODO
+## TODO
 
 * Add some tests
 * Add some documentation
 
-= Licensing
+## Licensing
 This gem is under MIT license, see LICENSE.txt file.
 
-= Authors
+## Authors
 * [Francesco Belladonna](https://github.com/Fire-Dragon-DoL)
