@@ -5,7 +5,7 @@ module PrefixRoutesWithLocale
       def self.included(base)
         base.send :prepend_before_filter, :set_locale_from_prefix_or_suppose
         def base.default_url_options
-          super.merge({locale: I18n.locale})
+          base.default_url_options.merge({locale: I18n.locale})
         end
       end
       
