@@ -65,7 +65,8 @@ Just ensure to run this method **out** of `prefix_routes_with_url`, after *any* 
 
 ## TODO
 
-* Add some tests
+* Add some deeper tests (maybe with rails)
+* Fix the issue witn ensure_url_has_locale (and rename it to ensure_route_has_prefix)
 * Add some documentation
 
 ## Licensing

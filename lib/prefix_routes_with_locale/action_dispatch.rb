@@ -16,6 +16,8 @@ module PrefixRoutesWithLocale
 
       # Use this method as the last one in your routes, will ensure that any path contains the url prefix,
       # is optional.
+      # This should be fixed, first: %{path} is parsed, second, it forces url prefix
+      # even on non-prefixed paths
       def ensure_url_has_locale
         match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
         match '', to: redirect("/#{I18n.default_locale}")
