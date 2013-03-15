@@ -5,6 +5,10 @@ module PrefixRoutesWithLocale
       def self.included(base)
         base.send :prepend_before_filter, :set_locale_from_prefix_or_suppose
       end
+
+      def default_url_options
+        super.merge({locale: I18n.locale})
+      end
       
       protected
 
@@ -34,10 +38,6 @@ module PrefixRoutesWithLocale
 
           # Update session with chosen locale only if different
           session[:locale] = I18n.locale unless session_locale_is_set
-        end
-
-        def default_url_options
-          super.merge({locale: I18n.locale})
         end
       
     end
