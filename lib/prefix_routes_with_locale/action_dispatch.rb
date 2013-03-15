@@ -12,6 +12,7 @@ module PrefixRoutesWithLocale
         scope ":locale", locale: /#{available_locales.join("|")}/ do
           yield
         end
+        yield
       end
 
       # Use this method as the last one in your routes, will ensure that any path contains the url prefix,
@@ -20,7 +21,8 @@ module PrefixRoutesWithLocale
       # even on non-prefixed paths
       # FIXME: %{path} is escaped, maybe I can use raw() on it?
       def ensure_all_routes_have_prefix
-        match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+        match '*path', to: redirect { |params, req| "/#{I18n.default_locale}/#{params[:path]}" },
+                       constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
       end
 
       def ensure_home_has_prefix
