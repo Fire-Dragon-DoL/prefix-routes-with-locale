@@ -3,13 +3,11 @@ module PrefixRoutesWithLocale
     module BaseMethods
       
       def self.included(base)
-        base.send :prepend_before_filter, :set_locale_from_prefix_or_suppose
-        base.class.send :alias_method, :prefix_routes_with_locale_default_url_options, :default_url_options
-        base.class.send :undef_method, :default_url_options
+        base.send(:prepend_before_filter, :set_locale_from_prefix_or_suppose)
       end
 
       def default_url_options
-        prefix_routes_with_locale_default_url_options.merge({locale: I18n.locale})
+        self.prefix_routes_with_locale_default_url_options.merge({locale: I18n.locale})
       end
       
       protected
@@ -46,4 +44,6 @@ module PrefixRoutesWithLocale
   end
 end
 
-ActionController::Base.send :include, PrefixRoutesWithLocale::ActionController::BaseMethods
+ActionController::Base.send(:alias_method, :prefix_routes_with_locale_default_url_options, :default_url_options)
+ActionController::Base.send(:remove_method, :default_url_options)
+ActionController::Base.send(:include, PrefixRoutesWithLocale::ActionController::BaseMethods)
