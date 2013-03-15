@@ -18,8 +18,11 @@ module PrefixRoutesWithLocale
       # is optional.
       # This should be fixed, first: %{path} is parsed, second, it forces url prefix
       # even on non-prefixed paths
-      def ensure_url_has_locale
+      def ensure_all_routes_have_prefix
         match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+      end
+
+      def ensure_home_has_prefix
         match '', to: redirect("/#{I18n.default_locale}")
       end
     
