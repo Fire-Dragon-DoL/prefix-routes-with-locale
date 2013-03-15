@@ -24,5 +24,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.25"
   s.summary = "Simple gem to easily support locale url prefix in Rails 3.x"
 
-  s.add_dependency('http_accept_language')
+  s.add_dependency 'http_accept_language'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
 end
