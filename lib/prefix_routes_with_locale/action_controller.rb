@@ -19,7 +19,7 @@ module PrefixRoutesWithLocale
         preferred_locales = I18n.available_locales
 
         http_locale = I18n.default_locale
-        if Rails.application.config.use_http_locale_accept_language && defined?(http_accept_language) && !http_accept_language.nil?
+        if defined?(http_accept_language) && !http_accept_language.nil?
           http_locale = http_accept_language.compatible_language_from(preferred_locales)
         end
 
