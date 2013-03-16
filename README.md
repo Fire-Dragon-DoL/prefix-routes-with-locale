@@ -1,4 +1,7 @@
 ### Last update March 17 2013
+The gem is currently not working as intended, I've difficulties handling url_for.
+Use [Sven Fuchs Routing Filter](https://github.com/svenfuchs/routing-filter) at the
+moment.
 
 ---
 
